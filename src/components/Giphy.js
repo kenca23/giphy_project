@@ -36,7 +36,6 @@ const Giphy = () => {
             })
 
             setData(results.data.data)
-            console.log(data)
             
         } catch (err) {
             setIsError(true)
@@ -83,7 +82,6 @@ const Giphy = () => {
 
     const handleClose = () => setShow(false);
     const handleShow = (index) => { 
-        console.log(index)
         setClickedIndex(index)
         setShow(true);
     }
