@@ -7,12 +7,15 @@ import FormControl from 'react-bootstrap/FormControl'
 import Button from 'react-bootstrap/Button'
 import Spinner from 'react-bootstrap/Spinner'
 import Alert from 'react-bootstrap/Alert';
+import Modal from 'react-bootstrap/Modal'
 
 const Giphy = () => {
     const [search, setSearch] = useState("")
     const [data, setData] = useState([])
     const [isLoading, setIsLoading] = useState(false)
     const [isError, setIsError] = useState(false)
+    const [show, setShow] = useState(false);
+    const [clickedIndex, setClickedIndex] = useState(-1)
 
 
     const handleSearchChange = event => { 
@@ -33,6 +36,7 @@ const Giphy = () => {
             })
 
             setData(results.data.data)
+            console.log(data)
             
         } catch (err) {
             setIsError(true)
@@ -59,9 +63,9 @@ const Giphy = () => {
                 </div>
             )
         }
-        return data.map(gif => { 
+        return data.map((gif, index) => { 
             return (
-                <div key={gif.id} className="gif">
+                <div key={gif.id} className="gif" onClick={() => handleShow(index)}>
                     <img src={gif.images.fixed_height.url} alt={gif.title}/>
                 </div> 
             )
@@ -75,6 +79,29 @@ const Giphy = () => {
                 </Alert>
             )
         }
+    }
+
+    const handleClose = () => setShow(false);
+    const handleShow = (index) => { 
+        console.log(index)
+        setClickedIndex(index)
+        setShow(true);
+    }
+
+    const renderModal = () => { 
+        if (clickedIndex>=0) { 
+            return (
+                <Modal size="lg" show={show} onHide={handleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>{ data[clickedIndex].title}</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <img src={data[clickedIndex].images.original.url} alt={data[clickedIndex].title}/>
+                    </Modal.Body>
+                </Modal>
+            )
+        }
+        
     }
 
     return (
@@ -98,6 +125,8 @@ const Giphy = () => {
                 { renderError() }
                 { renderGifs() }
             </Container>
+            {renderModal()}
+            
             
         </div>
     )

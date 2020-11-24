@@ -19,3 +19,7 @@
 	margin: 4px;
 	border: 2px solid #111111;
 }
+
+.modal-content .modal-body {
+	text-align: center;
+}
