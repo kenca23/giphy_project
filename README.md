@@ -4,10 +4,10 @@ Thank you for taking the time to work on this technical exercise.
 
 This exercise is meant to test your ability to build a single page application:
 
-- Access a public API and fetch data from it
-- Display that data on the page
-- Update the UI of the page without refreshing
-- Build a polished user experience you’d be proud to ship
+-   Access a public API and fetch data from it
+-   Display that data on the page
+-   Update the UI of the page without refreshing
+-   Build a polished user experience you’d be proud to ship
 
 This exercise is broken down into two categories, product requirements and engineering requirements.
 
@@ -15,7 +15,7 @@ This exercise is broken down into two categories, product requirements and engin
 
 Perform a search against any public photo API and display the results on a page.
 
-You can use any API that you want, but we’ve created a token for you to search against the [Giphy API](https://developers.giphy.com/docs/)(`LiT4XaeBUDCDtVpLNuTcc8fzKv84AmW6`). You can lookup their documentation on how to access their search endpoint.
+You can use any API that you want [Giphy API](https://developers.giphy.com/docs/). You can lookup their documentation on how to access their search endpoint.
 
 We expect:
 
@@ -28,13 +28,13 @@ If you have extra time we would like to see the photo thumbnail open a lightbox 
 
 ## Engineering Requirements
 
-- The single page app should be built via React.js
-- You’re free to use any http client library
-- You’re free to use any state management library
-- You’re free to use any CSS library
-- You don't need to focus on cross browser concerns, it only needs to work in one major browser (Chrome, FireFox, Safari, Edge)
-- **Please commit your code as you progress through the challenge**
-  - As part of your submission please include the SCM folder (.git) so we can review your commit history
+-   The single page app should be built via React.js
+-   You’re free to use any http client library
+-   You’re free to use any state management library
+-   You’re free to use any CSS library
+-   You don't need to focus on cross browser concerns, it only needs to work in one major browser (Chrome, FireFox, Safari, Edge)
+-   **Please commit your code as you progress through the challenge**
+    -   As part of your submission please include the SCM folder (.git) so we can review your commit history
 
 ## Getting started
 
@@ -51,8 +51,6 @@ $ npm start
 ## Seeking help
 
 This project was initialized using create-react-app, please see their documentation for any technical issues you might run into.
-
-If anything else is unclear or just have other technical questions, please email eric.wolfe@kareo.com
 
 ## Submitting your code
 
