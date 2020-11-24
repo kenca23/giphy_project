@@ -3,4 +3,19 @@
 	display: flex;
 	justify-content: center;
 	vertical-align: middle;
+	background-color: #e9e9e9;
+}
+
+.gifs-wrapper {
+	margin: 0 auto;
+	width: 80%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.gif {
+	padding: 2px;
+	margin: 4px;
+	border: 2px solid #111111;
 }
