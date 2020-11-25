@@ -10,32 +10,33 @@ import Alert from 'react-bootstrap/Alert';
 import Modal from 'react-bootstrap/Modal'
 
 const Giphy = () => {
-    const [search, setSearch] = useState("")
-    const [data, setData] = useState([])
-    const [isLoading, setIsLoading] = useState(false)
-    const [isError, setIsError] = useState(false)
-    const [show, setShow] = useState(false);
-    const [clickedIndex, setClickedIndex] = useState(-1)
+    const [search, setSearch] = useState("") // Handles the search input
+    const [data, setData] = useState([]) // Handles the data from Giphy
+    const [isLoading, setIsLoading] = useState(false) // Handles when the page is looking for data
+    const [isError, setIsError] = useState(false) // Handles error from fetching data
+    const [show, setShow] = useState(false); // Handles modal show
+    const [clickedIndex, setClickedIndex] = useState(-1) // Handles the gif to show in the modal
 
-
+    
     const handleSearchChange = event => { 
         setSearch(event.target.value)
     }
 
+    
     const handleSubmit = async event => { 
         event.preventDefault()
         setIsError(false)
         setIsLoading(true)
 
         try {
-            const results = await axios("https://api.giphy.com/v1/gifs/search", {
+            const results = await axios("https://api.giphy.com/v1/gifs/search", { // Request data from giphy
                 params: {
                     api_key: "LiT4XaeBUDCDtVpLNuTcc8fzKv84AmW6",
                     q: search
                 }
             })
 
-            setData(results.data.data)
+            setData(results.data.data) // set Data to data hook
             
         } catch (err) {
             setIsError(true)
@@ -45,6 +46,7 @@ const Giphy = () => {
         setIsLoading(false)
     }
 
+    // Logic for render serchead Gifs
     const renderGifs = () => { 
         if (isLoading) { 
             return (
@@ -80,6 +82,7 @@ const Giphy = () => {
         }
     }
 
+    //Handlers for modal.
     const handleClose = () => setShow(false);
     const handleShow = (index) => { 
         setClickedIndex(index)
